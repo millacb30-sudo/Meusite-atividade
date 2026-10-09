@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalhes do produto.">
+    <title>Produto - MeuSite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #ffe4ec;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa { background-color: #ffc2d1; }
+        .navbar-rosa .navbar-brand { color: #6b2d3e; }
+
+        h1, h2 { color: #6b2d3e; }
+
+        /* Cartão principal */
+        .card-produto {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(214, 51, 132, 0.15);
+        }
+
+        /* Imagem grande */
+        .produto-foto {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 3px solid #ffc2d1;
+            background-color: #ffe4ec;
+        }
+
+        .preco {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d63384;
+        }
+
+        /* Lista de características */
+        .lista-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #ffc2d1;
+        }
+        .lista-info li:last-child { border-bottom: none; }
+        .lista-info i { color: #d63384; margin-right: 0.5rem; }
+
+        /* Botão rosa */
+        .btn-rosa {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: #fff;
+        }
+        .btn-rosa:hover {
+            background-color: #b82a70;
+            border-color: #b82a70;
+            color: #fff;
+        }
+
+        .btn-outline-rosa {
+            border-color: #d63384;
+            color: #d63384;
+        }
+        .btn-outline-rosa:hover {
+            background-color: #d63384;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 0 0.25rem rgba(214, 51, 132, 0.2);
+        }
+
+        .breadcrumb-item a { color: #d63384; text-decoration: none; }
+        .breadcrumb-item.active { color: #6b2d3e; }
+
+        a { color: #d63384; }
+        a:hover { color: #b82a70; }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    <!-- Header simples -->
+    <header>
+        <nav class="navbar navbar-light navbar-rosa">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-heart-fill" style="color: #d63384;"></i> MeuSite
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+
+            <!-- Caminho de navegação -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+                    <li class="breadcrumb-item"><a href="produtos.html">Produtos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="caminhoNome">Produto</li>
+                </ol>
+            </nav>
+
+            <!-- Produto encontrado -->
+            <div class="card card-produto" id="blocoProduto">
+                <div class="card-body p-4 p-md-5">
+                    <div class="row g-4 g-lg-5">
+
+                        <!-- Imagem -->
+                        <div class="col-md-5">
+                            <img id="foto" class="produto-foto" src="" alt="">
+                        </div>
+
+                        <!-- Informações -->
+                        <div class="col-md-7">
+                            <span class="badge rounded-pill text-bg-light border mb-2" id="categoria"></span>
+                            <h1 class="h2" id="nome"></h1>
+
+                            <p class="mb-2">
+                                <span class="badge" id="status"></span>
+                            </p>
+
+                            <p class="preco mb-3" id="preco"></p>
+
+                            <p class="text-muted" id="descricao"></p>
+
+                            <h2 class="h6 mt-4">Características</h2>
+                            <ul class="list-unstyled lista-info" id="caracteristicas"></ul>
+
+                            <!-- Quantidade e compra -->
+                            <div class="row g-2 align-items-end mt-3">
+                                <div class="col-5 col-sm-3">
+                                    <label for="quantidade" class="form-label">Quantidade</label>
+                                    <input type="number" class="form-control" id="quantidade"
+                                           value="1" min="1" max="10">
+                                </div>
+                                <div class="col-7 col-sm-5">
+                                    <button type="button" class="btn btn-rosa w-100" id="btnComprar">
+                                        <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
+                                    </button>
+                                </div>
+                            </div>
+
+                            <p class="small text-muted mt-3 mb-0">
+                                <i class="bi bi-truck"></i> Consulte o prazo e o valor do frete no pagamento.
+                            </p>
+
+                            <div id="mensagemCompra" class="alert alert-success mt-3 d-none" role="alert"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto não encontrado -->
+            <div class="text-center py-5 d-none" id="blocoErro">
+                <i class="bi bi-emoji-frown" style="font-size: 3rem; color: #d63384;"></i>
+                <h1 class="h4 mt-3">Produto não encontrado</h1>
+                <p class="text-muted">O endereço pode estar incorreto ou o produto foi removido.</p>
+            </div>
+
+            <!-- Voltar -->
+            <div class="mt-4">
+                <a href="produtos.html" class="btn btn-outline-rosa">
+                    <i class="bi bi-arrow-left"></i> Voltar para a lista
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        
+        const produtos = {
+            1: {
+                nome: 'Hidratante Floral',
+                categoria: 'Cosméticos',
+                preco: 39.90,
+                status: 'disponivel',
+                imagem: 'imagens/hidratante.jpg',
+                descricao: 'Hidratante corporal com fragrância floral suave, de rápida absorção e toque leve.',
+                caracteristicas: ['Conteúdo: 200 ml', 'Fragrância floral', 'Uso diário']
+            },
+            2: {
+                nome: 'Kit de Pincéis',
+                categoria: 'Cosméticos',
+                preco: 89.00,
+                status: 'poucas',
+                imagem: 'imagens/pinceis.jpg',
+                descricao: 'Kit com pincéis de cerdas macias para uma maquiagem uniforme e prática.',
+                caracteristicas: ['Kit com 10 peças', 'Cerdas macias', 'Acompanha estojo']
+            },
+            3: {
+                nome: 'Colar Coração',
+                categoria: 'Acessórios',
+                preco: 59.90,
+                status: 'disponivel',
+                imagem: 'imagens/colar.jpg',
+                descricao: 'Colar delicado com pingente de coração, ótimo para presentear.',
+                caracteristicas: ['Pingente de coração', 'Corrente ajustável', 'Acompanha embalagem']
+            },
+            4: {
+                nome: 'Caixa de Presente',
+                categoria: 'Presentes',
+                preco: 45.00,
+                status: 'esgotado',
+                imagem: 'imagens/caixa-presente.jpg',
+                descricao: 'Caixa decorada para presentes, com laço de cetim.',
+                caracteristicas: ['Tamanho médio', 'Laço de cetim', 'Tampa removível']
+            },
+            5: {
+                nome: 'Caderno Rosa',
+                categoria: 'Papelaria',
+                preco: 24.50,
+                status: 'disponivel',
+                imagem: 'imagens/caderno.jpg',
+                descricao: 'Caderno com capa rosa e folhas pautadas, ideal para estudos e anotações.',
+                caracteristicas: ['96 folhas', 'Capa dura', 'Folhas pautadas']
+            },
+            6: {
+                nome: 'Perfume Primavera',
+                categoria: 'Cosméticos',
+                preco: 129.90,
+                status: 'poucas',
+                imagem: 'imagens/perfume.jpg',
+                descricao: 'Perfume com notas florais e frescas, inspirado na primavera.',
+                caracteristicas: ['Frasco de 50 ml', 'Notas florais', 'Longa duração']
+            }
+        };
+
+        const statusInfo = {
+            disponivel: { texto: 'Disponível',       classe: 'text-bg-success' },
+            poucas:     { texto: 'Poucas unidades',  classe: 'text-bg-warning' },
+            esgotado:   { texto: 'Esgotado',         classe: 'text-bg-danger'  }
+        };
+
+        // Lê o id da URL: produto.html?id=3
+        const id = new URLSearchParams(window.location.search).get('id');
+        const produto = produtos[id];
+
+        if (!produto) {
+            document.getElementById('blocoProduto').classList.add('d-none');
+            document.getElementById('blocoErro').classList.remove('d-none');
+        } else {
+            document.title = produto.nome + ' - MeuSite';
+            document.getElementById('caminhoNome').textContent = produto.nome;
+            document.getElementById('nome').textContent = produto.nome;
+            document.getElementById('categoria').textContent = produto.categoria;
+            document.getElementById('descricao').textContent = produto.descricao;
+            document.getElementById('preco').textContent =
+                produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+            const foto = document.getElementById('foto');
+            foto.src = produto.imagem;
+            foto.alt = produto.nome;
+
+            const st = statusInfo[produto.status];
+            const badge = document.getElementById('status');
+            badge.textContent = st.texto;
+            badge.classList.add(st.classe);
+
+            // Lista de características
+            const lista = document.getElementById('caracteristicas');
+            produto.caracteristicas.forEach((item) => {
+                const li = document.createElement('li');
+                const icone = document.createElement('i');
+                icone.className = 'bi bi-check2-circle';
+                li.appendChild(icone);
+                li.appendChild(document.createTextNode(item));
+                lista.appendChild(li);
+            });
+
+            // Botão de compra
+            const btn = document.getElementById('btnComprar');
+            const qtd = document.getElementById('quantidade');
+            const msg = document.getElementById('mensagemCompra');
+
+            if (produto.status === 'esgotado') {
+                btn.disabled = true;
+                btn.className = 'btn btn-secondary w-100';
+                btn.textContent = 'Indisponível';
+                qtd.disabled = true;
+            }
+
+            btn.addEventListener('click', () => {
+                const n = Math.min(Math.max(parseInt(qtd.value, 10) || 1, 1), 10);
+                qtd.value = n;
+                msg.textContent = n + ' unidade(s) de "' + produto.nome + '" adicionada(s) ao carrinho.';
+                msg.classList.remove('d-none');
+            });
+        }
+    </script>
+</body>
+</html>

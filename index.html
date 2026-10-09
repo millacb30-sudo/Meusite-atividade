@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu e-commerce </title>
+    <meta name="description" content="Loja de artigos variados.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <style>
+        header {
+            border-color: darkred;
+            border-width: 1px;
+            border-style: solid;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        main {
+            border-color: blue;
+            border-width: 1px;
+            border-style: dotted;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        footer {
+            border-color: chocolate;
+            border-width: 1px;
+            border-style: dashed;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+         body {
+            background-color: #ffe4ec; /* fundo rosa claro */
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa {
+            background-color: #ffc2d1; /* navbar rosa um pouco mais intenso */
+        }
+
+        .navbar-rosa .navbar-brand,
+        .navbar-rosa .nav-link {
+            color: #6b2d3e;
+        }
+
+        .navbar-rosa .nav-link:hover,
+        .navbar-rosa .nav-link.active {
+            color: #d63384;
+        }
+
+        .redes-sociais {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.rede {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffc2d1;   /* rosa da navbar */
+    color: #6b2d3e;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.rede:hover {
+    background-color: #d63384;   /* rosa forte ao passar o mouse */
+    color: #fff;
+    transform: translateY(-4px); }
+
+    card-produto-home {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(214, 51, 132, 0.12);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-produto-home:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(214, 51, 132, 0.25);
+}
+
+.card-produto-home img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #ffe4ec;
+}
+
+.card-produto-home .card-title { color: #6b2d3e; }
+
+.card-produto-home .preco {
+    color: #d63384;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.titulo-secao { color: #6b2d3e; }
+
+.btn-rosa {
+    background-color: #d63384;
+    border-color: #d63384;
+    color: #fff;
+}
+.btn-rosa:hover {
+    background-color: #b82a70;
+    border-color: #b82a70;
+    color: #fff;
+}
+
+.btn-outline-rosa {
+    border-color: #d63384;
+    color: #d63384;
+}
+.btn-outline-rosa:hover {
+    background-color: #d63384;
+    color: #fff;
+
+}
+    </style>
+
+</head>
+<body>
+    <!-- Header do Site -->
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-rosa">
+        <div class="container">
+            
+            
+
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-fill" style="color: #d63384;"></i> Minha loja
+            </a>
+
+            
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links do menu -->
+            
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto"
+                    <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                         <i class="bi bi-box-arrow-in-right"></i> Entrar
+                    </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="bi bi-house"></i> Início
+                        </a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="perfil.html"><i class="bi bi-person-circle"></i> Meu perfil</a>
+                </li>
+                    
+                    <li class="nav-item">
+                                        <a class="nav-link" href="sobre.html">
+                <i class="bi bi-info-circle"></i> Sobre
+            </a>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produtos.html">
+                            <i class="bi bi-briefcase"></i> Produtos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">
+                            <i class="bi bi-envelope"></i> Contato
+                        </a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="trabalhe-conosco.html">
+        <i class="bi bi-briefcase"></i> Trabalhe conosco
+    </a>
+
+    <li class="nav-item">
+    <a class="nav-link" href="suporte.html"><i class="bi bi-headset"></i> Suporte</a>
+</li> 
+</li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+    <!-- Fim do Header do Site -->
+
+    <!-- Main do Site -->
+    <main class="container-fluid"> 
+        <section id="destaques" class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-4">
+            <h2 class="titulo-secao">Produtos em destaque</h2>
+            <p class="text-muted">Escolhidos especialmente para você</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card card-produto-home h-100">
+                    <img src="imagens/hidratante.jfif" class="card-img-top"
+                         alt="Hidratante Floral" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge rounded-pill text-bg-light border align-self-start mb-2">Cosméticos</span>
+                        <h3 class="card-title h5">Hidratante Floral</h3>
+                        <p class="card-text text-muted">Fragrância floral suave e toque leve.</p>
+                        <p class="preco mt-auto mb-3">R$ 39,90</p>
+                        <a href="produto.html?id=1" class="btn btn-rosa w-100">
+                            <i class="bi bi-eye"></i> Ver detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card card-produto-home h-100">
+                    <img src="imagens/colar.jfif" class="card-img-top"
+                         alt="Colar Coração" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge rounded-pill text-bg-light border align-self-start mb-2">Acessórios</span>
+                        <h3 class="card-title h5">Colar Coração</h3>
+                        <p class="card-text text-muted">Delicado, ótimo para presentear.</p>
+                        <p class="preco mt-auto mb-3">R$ 59,90</p>
+                        <a href="produto.html?id=3" class="btn btn-rosa w-100">
+                            <i class="bi bi-eye"></i> Ver detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card card-produto-home h-100">
+                    <img src="imagens/perfume.jpg" class="card-img-top"
+                         alt="Perfume Primavera" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge rounded-pill text-bg-light border align-self-start mb-2">Cosméticos</span>
+                        <h3 class="card-title h5">Perfume Primavera</h3>
+                        <p class="card-text text-muted">Notas florais e frescas de longa duração.</p>
+                        <p class="preco mt-auto mb-3">R$ 129,90</p>
+                        <a href="produto.html?id=6" class="btn btn-rosa w-100">
+                            <i class="bi bi-eye"></i> Ver detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="produtos.html" class="btn btn-outline-rosa">
+                Ver todos os produtos <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+    </main>
+    <!-- Fim da Main do Site -->
+
+    <!-- Footer do Site -->
+    <footer id="footer" class="container text-center">
+
+
+        <section id="redes-sociais" class="py-5 text-center">
+            <div class="container">
+                <h2 class="mb-4">Nos acompanhe nas redes sociais</h2>
+
+                <div class="redes-sociais">
+                <a href="" target="_blank" rel="noopener noreferrer"
+               aria-label="Instagram" class="rede">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer"
+               aria-label="Facebook" class="rede">
+                <i class="bi bi-facebook"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer"
+               aria-label="WhatsApp" class="rede">
+                <i class="bi bi-whatsapp"></i>
+                </a>
+        
+            </div>
+    </div>
+    </section>
+        <p class="text-muted">
+            <i class="far fa-copyright icon"></i> 
+            2026 - Todos os direitos reservados.
+        </p>    
+    </footer>
+    <!-- Fim do Footer do Site -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+</body>
+</html>

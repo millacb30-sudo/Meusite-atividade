@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato conosco: formulário, telefone, e-mail e endereço.">
+    <title>Contato - MeuSite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #ffe4ec;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa { background-color: #ffc2d1; }
+        .navbar-rosa .navbar-brand,
+        .navbar-rosa .nav-link { color: #6b2d3e; }
+        .navbar-rosa .nav-link:hover,
+        .navbar-rosa .nav-link.active { color: #d63384; }
+
+        h1, h2, h3, h4, h5 { color: #6b2d3e; }
+
+        .hero-contato {
+            background-color: #ffc2d1;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* Cartões */
+        .card-contato {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(214, 51, 132, 0.15);
+        }
+
+        .icone-info {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffe4ec;
+            color: #d63384;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .mapa {
+            border: 0;
+            width: 100%;
+            height: 260px;
+            border-radius: 1rem;
+        }
+
+        /* Botão rosa */
+        .btn-rosa {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: #fff;
+        }
+        .btn-rosa:hover {
+            background-color: #b82a70;
+            border-color: #b82a70;
+            color: #fff;
+        }
+
+        /* Foco rosa nos campos */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 0 0.25rem rgba(214, 51, 132, 0.2);
+        }
+
+        .form-check-input:checked {
+            background-color: #d63384;
+            border-color: #d63384;
+        }
+
+        /* Redes sociais */
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .rede {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffe4ec;
+            color: #6b2d3e;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+        }
+
+        .rede:hover {
+            background-color: #d63384;
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        a { color: #d63384; }
+        a:hover { color: #b82a70; }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    <!-- Header com navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rosa">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-heart-fill" style="color: #d63384;"></i> MeuSite
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html"><i class="bi bi-info-circle"></i> Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html"><i class="bi bi-bag-heart"></i> Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contato.html"><i class="bi bi-envelope"></i> Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="trabalhe-conosco.html"><i class="bi bi-briefcase"></i> Trabalhe conosco</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Entrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1">
+
+        <!-- Abertura -->
+        <section class="hero-contato">
+            <div class="container">
+                <i class="bi bi-chat-heart-fill" style="font-size: 3rem; color: #d63384;"></i>
+                <h1 class="mt-2">Fale conosco</h1>
+                <p class="lead mb-0">Dúvidas, sugestões ou elogios? Responderemos o quanto antes.</p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+
+                    <!-- Formulário -->
+                    <div class="col-lg-7">
+                        <div class="card card-contato">
+                            <div class="card-body p-4 p-md-5">
+                                <h2 class="h4 mb-4">Envie uma mensagem</h2>
+
+                                <form id="formContato" novalidate>
+
+                                    <div class="mb-3">
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                            <input type="text" class="form-control" id="nome"
+                                                   placeholder="Seu nome" minlength="3" required>
+                                            <div class="invalid-feedback">Digite seu nome.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">E-mail</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                                <input type="email" class="form-control" id="email"
+                                                       placeholder="seuemail@exemplo.com" required>
+                                                <div class="invalid-feedback">Digite um e-mail válido.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="telefone" class="form-label">
+                                                Telefone <span class="text-muted">(opcional)</span>
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                                <input type="tel" class="form-control" id="telefone"
+                                                       placeholder="(24) 99999-9999"
+                                                       pattern="\(\d{2}\) \d{4,5}-\d{4}">
+                                                <div class="invalid-feedback">Use o formato (24) 99999-9999.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="assunto" class="form-label">Assunto</label>
+                                        <select class="form-select" id="assunto" required>
+                                            <option value="" selected disabled>Selecione...</option>
+                                            <option>Dúvida sobre produto</option>
+                                            <option>Pedido ou entrega</option>
+                                            <option>Troca ou devolução</option>
+                                            <option>Sugestão</option>
+                                            <option>Elogio</option>
+                                            <option>Outro</option>
+                                        </select>
+                                        <div class="invalid-feedback">Selecione um assunto.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="mensagem" class="form-label">Mensagem</label>
+                                        <textarea class="form-control" id="mensagem" rows="5"
+                                                  minlength="10" maxlength="500"
+                                                  placeholder="Escreva sua mensagem..." required></textarea>
+                                        <div class="invalid-feedback">Escreva pelo menos 10 caracteres.</div>
+                                        <div class="form-text text-end"><span id="contador">0</span>/500</div>
+                                    </div>
+
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="consentimento" required>
+                                        <label class="form-check-label" for="consentimento">
+                                            Concordo com o uso dos meus dados para retorno deste contato.
+                                            <a href="#">Política de privacidade</a>
+                                        </label>
+                                        <div class="invalid-feedback">Você precisa concordar para continuar.</div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-rosa w-100 py-2">
+                                        <i class="bi bi-send"></i> Enviar mensagem
+                                    </button>
+
+                                    <div id="mensagemSucesso" class="alert alert-success mt-3 d-none" role="alert">
+                                        <i class="bi bi-check-circle"></i> Mensagem enviada com sucesso!
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informações -->
+                    <div class="col-lg-5">
+                        <div class="card card-contato mb-4">
+                            <div class="card-body p-4">
+                                <h2 class="h4 mb-4">Nossos canais</h2>
+
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="icone-info me-3"><i class="bi bi-geo-alt"></i></span>
+                                    <div>
+                                        <strong>Endereço</strong><br>
+                                        <span class="text-muted">Rua Exemplo, 123 - Centro<br>Cidade - UF, 00000-000</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="icone-info me-3"><i class="bi bi-telephone"></i></span>
+                                    <div>
+                                        <strong>Telefone</strong><br>
+                                        <a href="tel:+5524999999999" class="text-decoration-none">(24) 99999-9999</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="icone-info me-3"><i class="bi bi-whatsapp"></i></span>
+                                    <div>
+                                        <strong>WhatsApp</strong><br>
+                                        <a href="https://wa.me/5524999999999" target="_blank"
+                                           rel="noopener noreferrer" class="text-decoration-none">Chamar no WhatsApp</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="icone-info me-3"><i class="bi bi-envelope"></i></span>
+                                    <div>
+                                        <strong>E-mail</strong><br>
+                                        <a href="mailto:contato@meusite.com" class="text-decoration-none">contato@meusite.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-start">
+                                    <span class="icone-info me-3"><i class="bi bi-clock"></i></span>
+                                    <div>
+                                        <strong>Horário de atendimento</strong><br>
+                                        <span class="text-muted">Seg a Sex: 9h às 18h<br>Sábado: 9h às 13h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mapa (troque o endereço em q=) -->
+                        <iframe class="mapa"
+                                src="https://www.google.com/maps?q=Rua+Exemplo+123&output=embed"
+                                title="Mapa com a localização da loja"
+                                loading="lazy" allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="py-4 text-center" style="background-color: #ffc2d1;">
+        <div class="container">
+            <div class="redes-sociais mb-3">
+                <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram" class="rede"><i class="bi bi-instagram"></i></a>
+                <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Facebook" class="rede"><i class="bi bi-facebook"></i></a>
+                <a href="https://wa.me/5524999999999" target="_blank" rel="noopener noreferrer"
+                   aria-label="WhatsApp" class="rede"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <small style="color: #6b2d3e;">&copy; 2026 MeuSite. Todos os direitos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const form = document.getElementById('formContato');
+        const telefone = document.getElementById('telefone');
+        const mensagem = document.getElementById('mensagem');
+        const contador = document.getElementById('contador');
+        const sucesso = document.getElementById('mensagemSucesso');
+
+        // Máscara do telefone: (24) 99999-9999
+        telefone.addEventListener('input', () => {
+            let v = telefone.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 10) {
+                v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            } else if (v.length > 6) {
+                v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+            } else if (v.length > 2) {
+                v = v.replace(/^(\d{2})(\d*)/, '($1) $2');
+            } else if (v.length > 0) {
+                v = v.replace(/^(\d*)/, '($1');
+            }
+            telefone.value = v;
+        });
+
+        // Contador de caracteres
+        mensagem.addEventListener('input', () => {
+            contador.textContent = mensagem.value.length;
+        });
+
+        // Validação no envio
+        form.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            sucesso.classList.add('d-none');
+
+            if (!form.checkValidity()) {
+                evento.stopPropagation();
+            } else {
+                
+                sucesso.classList.remove('d-none');
+                form.reset();
+                form.classList.remove('was-validated');
+                contador.textContent = '0';
+                return;
+            }
+
+            form.classList.add('was-validated');
+        });
+    </script>
+</body>
+</html>

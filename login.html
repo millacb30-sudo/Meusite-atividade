@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de login com Bootstrap e Bootstrap Icons.">
+    <title>Login - MeuSite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #ffe4ec;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa { background-color: #ffc2d1; }
+        .navbar-rosa .navbar-brand { color: #6b2d3e; }
+
+        /* Cartão do login */
+        .card-login {
+            max-width: 420px;
+            width: 100%;
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(214, 51, 132, 0.15);
+        }
+
+        .card-login h1 { color: #6b2d3e; }
+
+        /* Botão rosa */
+        .btn-rosa {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: #fff;
+        }
+        .btn-rosa:hover {
+            background-color: #b82a70;
+            border-color: #b82a70;
+            color: #fff;
+        }
+
+       
+        .form-control:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 0 0.25rem rgba(214, 51, 132, 0.2);
+        }
+
+        .form-check-input:checked {
+            background-color: #d63384;
+            border-color: #d63384;
+        }
+
+        a { color: #d63384; }
+        a:hover { color: #b82a70; }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    
+    <header>
+        <nav class="navbar navbar-light navbar-rosa">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-heart-fill" style="color: #d63384;"></i> MeuSite
+                </a>
+            </div>
+        </nav>
+    </header>
+
+   
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
+        <div class="card card-login">
+            <div class="card-body p-4 p-md-5">
+
+                <div class="text-center mb-4">
+                    <i class="bi bi-person-circle" style="font-size: 3rem; color: #d63384;"></i>
+                    <h1 class="h3 mt-2">Bem-vindo(a)</h1>
+                    <p class="text-muted mb-0">Entre na sua conta</p>
+                </div>
+
+                <form id="formLogin" class="needs-validation" novalidate>
+
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="email"
+                                   placeholder="seuemail@exemplo.com" required>
+                            <div class="invalid-feedback">Digite um e-mail válido.</div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <input type="password" class="form-control" id="senha"
+                                   placeholder="Sua senha" minlength="6" required>
+                            <button class="btn btn-outline-secondary" type="button"
+                                    id="btnMostrarSenha" aria-label="Mostrar ou ocultar senha">
+                                <i class="bi bi-eye" id="iconeSenha"></i>
+                            </button>
+                            <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="lembrar">
+                            <label class="form-check-label" for="lembrar">Lembrar de mim</label>
+                        </div>
+                        <a href="#" class="small">Esqueci a senha</a>
+                    </div>
+
+                    <!-- Botão -->
+                    <button type="submit" class="btn btn-rosa w-100 py-2">
+                        <i class="bi bi-box-arrow-in-right"></i> Entrar
+                    </button>
+                </form>
+
+                <p class="text-center mt-4 mb-0">
+                    Não tem conta? <a href="cadastro.html">Cadastre-se</a>
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Mostrar / ocultar senha
+        const campoSenha = document.getElementById('senha');
+        const icone = document.getElementById('iconeSenha');
+
+        document.getElementById('btnMostrarSenha').addEventListener('click', () => {
+            const oculta = campoSenha.type === 'password';
+            campoSenha.type = oculta ? 'text' : 'password';
+            icone.className = oculta ? 'bi bi-eye-slash' : 'bi bi-eye';
+        });
+
+        // Validação do formulário
+        const form = document.getElementById('formLogin');
+
+        form.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+
+            if (!form.checkValidity()) {
+                evento.stopPropagation();
+            } else {
+                alert('Formulário válido! Aqui você enviaria os dados ao servidor.');
+            }
+
+            form.classList.add('was-validated');
+        });
+    </script>
+</body>
+</html>

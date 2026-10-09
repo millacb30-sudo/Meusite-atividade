@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a nossa história, missão, valores e equipe.">
+    <title>Sobre - MeuSite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #ffe4ec;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa { background-color: #ffc2d1; }
+        .navbar-rosa .navbar-brand,
+        .navbar-rosa .nav-link { color: #6b2d3e; }
+        .navbar-rosa .nav-link:hover,
+        .navbar-rosa .nav-link.active { color: #d63384; }
+
+        h1, h2, h3, h4, h5 { color: #6b2d3e; }
+
+        /* Faixa de abertura */
+        .hero-sobre {
+            background-color: #ffc2d1;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Imagem da história */
+        .foto-sobre {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 3px solid #ffc2d1;
+            background-color: #fff;
+        }
+
+        /* Cartões de missão, visão e valores */
+        .card-valor {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 6px 18px rgba(214, 51, 132, 0.12);
+            height: 100%;
+        }
+
+        .icone-valor {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: #ffe4ec;
+            color: #d63384;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        /* Números */
+        .numero {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #d63384;
+        }
+
+        /* Equipe */
+        .foto-equipe {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ffc2d1;
+            background-color: #ffe4ec;
+        }
+
+        /* Redes sociais */
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .rede {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffc2d1;
+            color: #6b2d3e;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+        }
+
+        .rede:hover {
+            background-color: #d63384;
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        /* Botões */
+        .btn-rosa {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: #fff;
+        }
+        .btn-rosa:hover {
+            background-color: #b82a70;
+            border-color: #b82a70;
+            color: #fff;
+        }
+
+        a { color: #d63384; }
+        a:hover { color: #b82a70; }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    <!-- Header com navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rosa">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-heart-fill" style="color: #d63384;"></i> MeuSite
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="sobre.html"><i class="bi bi-info-circle"></i> Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html"><i class="bi bi-bag-heart"></i> Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="trabalhe-conosco.html"><i class="bi bi-briefcase"></i> Trabalhe conosco</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Entrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1">
+
+        <!-- Abertura -->
+        <section class="hero-sobre">
+            <div class="container">
+                <i class="bi bi-heart-fill" style="font-size: 3rem; color: #d63384;"></i>
+                <h1 class="mt-2">Sobre nós</h1>
+                <p class="lead mb-0">Conheça quem somos e o que nos move todos os dias.</p>
+            </div>
+        </section>
+
+        <!-- Nossa história -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center g-4 g-lg-5">
+
+                        <p>
+                            Tudo começou com um pequeno sonho: oferecer produtosselecionados com carinho,
+                            que tornam o dia a dia mais bonito. Com dedicação e o apoio de quem confiou em nós,
+                            crescemos e hoje atendemos clientes de todo o país.
+                        </p>
+                        <p class="mb-0">
+                            Cada item do nosso catálogo é escolhido pensando em qualidade, bom preço e
+                            no sorriso de quem recebe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missão, visão e valores -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2>Missão, visão e valores</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card card-valor text-center">
+                            <div class="card-body p-4">
+                                <span class="icone-valor mb-3"><i class="bi bi-bullseye"></i></span>
+                                <h3 class="h5">Missão</h3>
+                                <p class="text-muted mb-0">
+                                    Oferecer produtos de qualidade com atendimento atencioso e preço justo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-valor text-center">
+                            <div class="card-body p-4">
+                                <span class="icone-valor mb-3"><i class="bi bi-eye"></i></span>
+                                <h3 class="h5">Visão</h3>
+                                <p class="text-muted mb-0">
+                                    Ser reconhecida como uma loja de confiança, lembrada pelo cuidado com cada cliente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-valor text-center">
+                            <div class="card-body p-4">
+                                <span class="icone-valor mb-3"><i class="bi bi-stars"></i></span>
+                                <h3 class="h5">Valores</h3>
+                                <p class="text-muted mb-0">
+                                    Honestidade, respeito, carinho no atendimento e compromisso com a qualidade.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Números -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-6 col-md-3">
+                        <div class="numero">5+</div>
+                        <div class="text-muted">Anos de história</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="numero">1.000+</div>
+                        <div class="text-muted">Clientes atendidos</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="numero">50+</div>
+                        <div class="text-muted">Produtos no catálogo</div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="numero">100%</div>
+                        <div class="text-muted">Carinho em cada pedido</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Chamada final -->
+        <section class="py-5 text-center">
+            <div class="container">
+                <h2>Quer fazer parte da nossa história?</h2>
+                <p class="text-muted">Conheça nossos produtos ou envie seu currículo.</p>
+                <a href="produtos.html" class="btn btn-rosa me-2 mb-2">
+                    <i class="bi bi-bag-heart"></i> Ver produtos
+                </a>
+                <a href="trabalhe-conosco.html" class="btn btn-outline-secondary mb-2">
+                    <i class="bi bi-briefcase"></i> Trabalhe conosco
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé com redes sociais -->
+    <footer class="py-4 text-center" style="background-color: #ffc2d1;">
+        <div class="container">
+            <div class="redes-sociais mb-3">
+                <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram" class="rede"><i class="bi bi-instagram"></i></a>
+                <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Facebook" class="rede"><i class="bi bi-facebook"></i></a>
+                <a href="https://wa.me/5524999999999" target="_blank" rel="noopener noreferrer"
+                   aria-label="WhatsApp" class="rede"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <small style="color: #6b2d3e;">&copy; 2026 MeuSite. Todos os direitos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

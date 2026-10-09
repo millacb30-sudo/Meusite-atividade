@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerencie seus dados, senha e pedidos.">
+    <title>Meu perfil - MeuSite</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #ffe4ec;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar-rosa { background-color: #ffc2d1; }
+        .navbar-rosa .navbar-brand,
+        .navbar-rosa .nav-link { color: #6b2d3e; }
+        .navbar-rosa .nav-link:hover,
+        .navbar-rosa .nav-link.active { color: #d63384; }
+
+        h1, h2, h3, h4, h5 { color: #6b2d3e; }
+
+        /* Faixa de capa */
+        .capa {
+            background-color: #ffc2d1;
+            height: 140px;
+        }
+
+        /* Cartões */
+        .card-perfil {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(214, 51, 132, 0.15);
+        }
+
+        /* Avatar */
+        .avatar-area {
+            margin-top: -70px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            background-color: #ffe4ec;
+            box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
+        }
+
+        /* Abas em rosa */
+        .nav-pills .nav-link {
+            color: #6b2d3e;
+            border-radius: 2rem;
+        }
+        .nav-pills .nav-link:hover { color: #d63384; }
+        .nav-pills .nav-link.active {
+            background-color: #d63384;
+            color: #fff;
+        }
+
+        /* Tabela de pedidos */
+        .tabela-rosa thead th {
+            background-color: #ffc2d1;
+            color: #6b2d3e;
+            border-bottom: 2px solid #d63384;
+            white-space: nowrap;
+        }
+        .tabela-rosa td,
+        .tabela-rosa th { vertical-align: middle; }
+
+        /* Botões */
+        .btn-rosa {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: #fff;
+        }
+        .btn-rosa:hover {
+            background-color: #b82a70;
+            border-color: #b82a70;
+            color: #fff;
+        }
+
+        .btn-outline-rosa {
+            border-color: #d63384;
+            color: #d63384;
+        }
+        .btn-outline-rosa:hover {
+            background-color: #d63384;
+            color: #fff;
+        }
+
+        /* Foco rosa nos campos */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 0 0.25rem rgba(214, 51, 132, 0.2);
+        }
+
+        /* Campos bloqueados (modo visualização) */
+        .form-control:disabled,
+        .form-select:disabled {
+            background-color: #fff5f8;
+            color: #333;
+        }
+
+        /* Redes sociais */
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .rede {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffe4ec;
+            color: #6b2d3e;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+        }
+
+        .rede:hover {
+            background-color: #d63384;
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        a { color: #d63384; }
+        a:hover { color: #b82a70; }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+    <!-- Header com navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-rosa">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-heart-fill" style="color: #d63384;"></i> MeuSite
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre.html"><i class="bi bi-info-circle"></i> Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html"><i class="bi bi-bag-heart"></i> Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html"><i class="bi bi-envelope"></i> Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="perfil.html"><i class="bi bi-person-circle"></i> Meu perfil</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1">
+
+        <!-- Capa -->
+        <div class="capa"></div>
+
+        <div class="container pb-5">
+
+            <!-- Cabeçalho do perfil -->
+            <div class="avatar-area text-center">
+                <div class="position-relative d-inline-block">
+                    <img id="avatar" class="avatar" src="https://picsum.photos/seed/perfil/240"
+                         alt="Foto de perfil">
+                    <label for="inputFoto" class="btn btn-rosa btn-sm rounded-circle position-absolute"
+                           style="right: 0; bottom: 0; width: 36px; height: 36px; padding: 0;
+                                  display: flex; align-items: center; justify-content: center;"
+                           title="Trocar foto">
+                        <i class="bi bi-camera-fill"></i>
+                    </label>
+                    <input type="file" id="inputFoto" accept="image/png, image/jpeg, image/webp" class="d-none">
+                </div>
+
+                <h1 class="h3 mt-3 mb-0" id="tituloNome">Maria da Silva</h1>
+                <p class="text-muted mb-1" id="tituloEmail">maria@exemplo.com</p>
+                <span class="badge rounded-pill text-bg-light border">
+                    <i class="bi bi-calendar-heart"></i> Cliente desde 2025
+                </span>
+                <div id="avisoFoto" class="small text-danger mt-2 d-none"></div>
+            </div>
+
+            <!-- Abas -->
+            <ul class="nav nav-pills justify-content-center gap-1 my-4" id="abas" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#abaDados"
+                            type="button" role="tab">
+                        <i class="bi bi-person"></i> Meus dados
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#abaSenha"
+                            type="button" role="tab">
+                        <i class="bi bi-shield-lock"></i> Segurança
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#abaPedidos"
+                            type="button" role="tab">
+                        <i class="bi bi-bag-heart"></i> Meus pedidos
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <!-- ===== Aba: Meus dados ===== -->
+                <div class="tab-pane fade show active" id="abaDados" role="tabpanel">
+                    <div class="card card-perfil mx-auto" style="max-width: 720px;">
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="h4 mb-0">Dados pessoais</h2>
+                                <button type="button" class="btn btn-outline-rosa btn-sm" id="btnEditar">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+
+                            <form id="formDados" novalidate>
+                                <fieldset id="camposDados" disabled>
+
+                                    <div class="mb-3">
+                                        <label for="nome" class="form-label">Nome completo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                            <input type="text" class="form-control" id="nome"
+                                                   value="Maria da Silva" minlength="3" required>
+                                            <div class="invalid-feedback">Digite seu nome completo.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">E-mail</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                                <input type="email" class="form-control" id="email"
+                                                       value="maria@exemplo.com" required>
+                                                <div class="invalid-feedback">Digite um e-mail válido.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="telefone" class="form-label">Telefone</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                                <input type="tel" class="form-control" id="telefone"
+                                                       value="(24) 99999-9999"
+                                                       pattern="\(\d{2}\) \d{4,5}-\d{4}" required>
+                                                <div class="invalid-feedback">Use o formato (24) 99999-9999.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nascimento" class="form-label">Data de nascimento</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                                                <input type="date" class="form-control" id="nascimento"
+                                                       value="1995-05-20" required>
+                                                <div class="invalid-feedback">Informe a data.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="estado" class="form-label">Estado</label>
+                                            <select class="form-select" id="estado" required>
+                                                <option value="" disabled>Selecione...</option>
+                                                <option value="RJ" selected>Rio de Janeiro</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="OUTRO">Outro</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecione um estado.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="cidade" class="form-label">Cidade</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                            <input type="text" class="form-control" id="cidade"
+                                                   value="Petrópolis" required>
+                                            <div class="invalid-feedback">Informe sua cidade.</div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <div id="botoesEdicao" class="d-none mt-4">
+                                    <button type="submit" class="btn btn-rosa me-2">
+                                        <i class="bi bi-check-circle"></i> Salvar alterações
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" id="btnCancelar">
+                                        Cancelar
+                                    </button>
+                                </div>
+
+                                <div id="sucessoDados" class="alert alert-success mt-3 d-none" role="alert">
+                                    <i class="bi bi-check-circle"></i> Dados atualizados com sucesso!
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== Aba: Segurança ===== -->
+                <div class="tab-pane fade" id="abaSenha" role="tabpanel">
+                    <div class="card card-perfil mx-auto" style="max-width: 560px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="h4 mb-4">Alterar senha</h2>
+
+                            <form id="formSenha" novalidate>
+
+                                <div class="mb-3">
+                                    <label for="senhaAtual" class="form-label">Senha atual</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" id="senhaAtual" required>
+                                        <div class="invalid-feedback">Digite sua senha atual.</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="senhaNova" class="form-label">Nova senha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" id="senhaNova"
+                                               minlength="6" placeholder="Mínimo de 6 caracteres" required>
+                                        <button class="btn btn-outline-secondary" type="button"
+                                                id="btnMostrarSenha" aria-label="Mostrar ou ocultar senhas">
+                                            <i class="bi bi-eye" id="iconeSenha"></i>
+                                        </button>
+                                        <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="senhaConfirmar" class="form-label">Confirmar nova senha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                                        <input type="password" class="form-control" id="senhaConfirmar" required>
+                                        <div class="invalid-feedback">As senhas não coincidem.</div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-rosa w-100 py-2">
+                                    <i class="bi bi-shield-check"></i> Atualizar senha
+                                </button>
+
+                                <div id="sucessoSenha" class="alert alert-success mt-3 d-none" role="alert">
+                                    <i class="bi bi-check-circle"></i> Senha atualizada com sucesso!
+                                </div>
+                            </form>
+
+                            <hr class="my-4">
+
+                            <a href="login.html" class="btn btn-outline-secondary w-100">
+                                <i class="bi bi-box-arrow-right"></i> Sair da conta
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== Aba: Meus pedidos ===== -->
+                <div class="tab-pane fade" id="abaPedidos" role="tabpanel">
+                    <div class="card card-perfil">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table tabela-rosa mb-0">
+                                    <caption class="visually-hidden">Histórico de pedidos</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Pedido</th>
+                                            <th scope="col">Data</th>
+                                            <th scope="col">Itens</th>
+                                            <th scope="col" class="text-end">Total</th>
+                                            <th scope="col" class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">#1003</th>
+                                            <td>12/09/2026</td>
+                                            <td>Perfume Primavera</td>
+                                            <td class="text-end">R$ 129,90</td>
+                                            <td class="text-center"><span class="badge text-bg-warning">Em transporte</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#1002</th>
+                                            <td>28/08/2026</td>
+                                            <td>Colar Coração, Caderno Rosa</td>
+                                            <td class="text-end">R$ 84,40</td>
+                                            <td class="text-center"><span class="badge text-bg-success">Entregue</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#1001</th>
+                                            <td>15/07/2026</td>
+                                            <td>Hidratante Floral</td>
+                                            <td class="text-end">R$ 39,90</td>
+                                            <td class="text-center"><span class="badge text-bg-success">Entregue</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="produtos.html" class="btn btn-rosa">
+                            <i class="bi bi-bag-heart"></i> Continuar comprando
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="py-4 text-center" style="background-color: #ffc2d1;">
+        <div class="container">
+            <div class="redes-sociais mb-3">
+                <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram" class="rede"><i class="bi bi-instagram"></i></a>
+                <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer"
+                   aria-label="Facebook" class="rede"><i class="bi bi-facebook"></i></a>
+                <a href="https://wa.me/5524999999999" target="_blank" rel="noopener noreferrer"
+                   aria-label="WhatsApp" class="rede"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <small style="color: #6b2d3e;">&copy; 2026 MeuSite. Todos os direitos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* ========== Foto de perfil ========== */
+        const inputFoto = document.getElementById('inputFoto');
+        const avatar = document.getElementById('avatar');
+        const avisoFoto = document.getElementById('avisoFoto');
+
+        inputFoto.addEventListener('change', () => {
+            const arquivo = inputFoto.files[0];
+            avisoFoto.classList.add('d-none');
+            if (!arquivo) return;
+
+            if (arquivo.size > 2 * 1024 * 1024) {
+                avisoFoto.textContent = 'A imagem deve ter no máximo 2 MB.';
+                avisoFoto.classList.remove('d-none');
+                inputFoto.value = '';
+                return;
+            }
+
+            // Mostra a prévia (só no navegador; nada é enviado)
+            avatar.src = URL.createObjectURL(arquivo);
+        });
+
+        /* ========== Meus dados: editar / salvar / cancelar ========== */
+        const formDados = document.getElementById('formDados');
+        const camposDados = document.getElementById('camposDados');
+        const btnEditar = document.getElementById('btnEditar');
+        const btnCancelar = document.getElementById('btnCancelar');
+        const botoesEdicao = document.getElementById('botoesEdicao');
+        const sucessoDados = document.getElementById('sucessoDados');
+        const telefone = document.getElementById('telefone');
+
+        const idsCampos = ['nome', 'email', 'telefone', 'nascimento', 'estado', 'cidade'];
+        let copia = {};
+
+        function entrarEdicao() {
+            idsCampos.forEach((id) => copia[id] = document.getElementById(id).value);
+            camposDados.disabled = false;
+            botoesEdicao.classList.remove('d-none');
+            btnEditar.classList.add('d-none');
+            sucessoDados.classList.add('d-none');
+        }
+
+        function sairEdicao() {
+            camposDados.disabled = true;
+            botoesEdicao.classList.add('d-none');
+            btnEditar.classList.remove('d-none');
+            formDados.classList.remove('was-validated');
+        }
+
+        btnEditar.addEventListener('click', entrarEdicao);
+
+        btnCancelar.addEventListener('click', () => {
+            idsCampos.forEach((id) => document.getElementById(id).value = copia[id]);
+            sairEdicao();
+        });
+
+        // Máscara do telefone
+        telefone.addEventListener('input', () => {
+            let v = telefone.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 10) {
+                v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            } else if (v.length > 6) {
+                v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+            } else if (v.length > 2) {
+                v = v.replace(/^(\d{2})(\d*)/, '($1) $2');
+            } else if (v.length > 0) {
+                v = v.replace(/^(\d*)/, '($1');
+            }
+            telefone.value = v;
+        });
+
+        formDados.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+
+            if (!formDados.checkValidity()) {
+                evento.stopPropagation();
+                formDados.classList.add('was-validated');
+                return;
+            }
+
+            // Aqui você enviaria os dados ao servidor
+            document.getElementById('tituloNome').textContent = document.getElementById('nome').value;
+            document.getElementById('tituloEmail').textContent = document.getElementById('email').value;
+
+            sairEdicao();
+            sucessoDados.classList.remove('d-none');
+        });
+
+        /* ========== Segurança: alterar senha ========== */
+        const formSenha = document.getElementById('formSenha');
+        const senhaNova = document.getElementById('senhaNova');
+        const senhaConfirmar = document.getElementById('senhaConfirmar');
+        const sucessoSenha = document.getElementById('sucessoSenha');
+
+        document.getElementById('btnMostrarSenha').addEventListener('click', () => {
+            const oculta = senhaNova.type === 'password';
+            const tipo = oculta ? 'text' : 'password';
+            document.getElementById('senhaAtual').type = tipo;
+            senhaNova.type = tipo;
+            senhaConfirmar.type = tipo;
+            document.getElementById('iconeSenha').className = oculta ? 'bi bi-eye-slash' : 'bi bi-eye';
+        });
+
+        function conferirSenhas() {
+            senhaConfirmar.setCustomValidity(
+                senhaConfirmar.value !== senhaNova.value ? 'As senhas não coincidem.' : ''
+            );
+        }
+        senhaNova.addEventListener('input', conferirSenhas);
+        senhaConfirmar.addEventListener('input', conferirSenhas);
+
+        formSenha.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            conferirSenhas();
+            sucessoSenha.classList.add('d-none');
+
+            if (!formSenha.checkValidity()) {
+                evento.stopPropagation();
+                formSenha.classList.add('was-validated');
+                return;
+            }
+
+            // Aqui você enviaria a nova senha ao servidor
+            formSenha.reset();
+            formSenha.classList.remove('was-validated');
+            sucessoSenha.classList.remove('d-none');
+        });
+    </script>
+</body>
+</html>
