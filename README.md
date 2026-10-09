@@ -1,2 +1,2 @@
-# Meu-site-atividade
+# Meusite-atividade
 Modelo de site criado para e-commerce.
